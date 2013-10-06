@@ -38,3 +38,15 @@ openstack:
     storage_alternate: local
     storage_path: /tmp/registry
     loglevel: debug
+
+swift:
+    storage: swift
+    # for temporary index files
+    storage_path: /tmp/registry
+    storage_auth_url: http://myswiftservice/auth/v1.0
+    storage_account: myaccount
+    storage_username: myusername
+    storage_password: mypassword
+    storage_container: docker-registry-demo
+    loglevel: debug
+
