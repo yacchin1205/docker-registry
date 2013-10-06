@@ -116,7 +116,7 @@ def temp_store_handler():
 from glance import GlanceStorage
 from local import LocalStorage
 from s3 import S3Storage
-
+from swift import SwiftStorage
 
 _storage = {}
 
@@ -135,6 +135,8 @@ def load(kind=None):
         store = LocalStorage(cfg)
     elif kind == 'glance':
         store = GlanceStorage(cfg)
+    elif kind == 'swift':
+        store = SwiftStorage(cfg)
     else:
         raise ValueError('Not supported storage \'{0}\''.format(kind))
     _storage[kind] = store
